@@ -1,0 +1,17 @@
+web:
+  container_name: nodejsstarter.web
+  build: ./node
+  links:
+    - mongo
+  #volumes:
+  #  - "./app:/src"
+  ports:
+    - "8080:3000"
+
+mongo:
+  container_name: nodejsstarter.mongo
+  build: ./mongo
+  volumes:
+    - "./data/db:data/db"
+  ports:
+    - "27017:27017"
